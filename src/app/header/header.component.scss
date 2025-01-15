@@ -1,0 +1,24 @@
+mot-toolbar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+    border: none
+}
+
+mot-toolbar button.active:not(.home-button) {
+    // border-bottom: 0.15em solid red;
+    color: green;
+}
+
+mot-toolbar button:not(.home-button) {
+    color: rgb(88, 2, 88);
+    border-bottom: 0.15em solid rgb(219, 18, 18);
+
+}
+
+
+mat-toolbar .home-button {
+    color: rgb(88, 2, 88);
+}
