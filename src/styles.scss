@@ -4,7 +4,8 @@
 
 html {
     @include mat.theme((color: (theme-type: light,
-                primary: mat.$azure-palette,
+                // primary: mat.$azure-palette,
+                primary: mat.$violet-palette,
                 tertiary: mat.$blue-palette,
             ),
             typography: Roboto,
@@ -12,8 +13,7 @@ html {
         ));
 }
 
-html,
-body {
+html {
     height: 100%;
 }
 
@@ -27,6 +27,6 @@ body {
     flex: 1 1 auto;
 }
 
-.imge-avatar {
+.image-avatar {
     background-size: cover;
 }
