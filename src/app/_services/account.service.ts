@@ -65,4 +65,6 @@ export class AccountService {
       this.data.set(data)
     }
   }
+  // async updateProfile(user:User):Promise
 }
+
