@@ -7,6 +7,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http'
 import { NgxSpinnerModule } from 'ngx-spinner'
 import { loadingInterceptor } from './_interceptors/loading.interceptor'
 import { errorInterceptor } from './_interceptors/error.interceptor'
+import { jwtInterceptor } from './_interceptors/jwt.interceptor'
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(
       withInterceptors([
-        loadingInterceptor, errorInterceptor]
+        loadingInterceptor, errorInterceptor, jwtInterceptor]
       )),
     importProvidersFrom(NgxSpinnerModule)
   ]

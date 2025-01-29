@@ -1,8 +1,8 @@
-import { inject, Injectable } from '@angular/core'
-import { NavigationExtras, Router } from '@angular/router'
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar'
-import { validateHorizontalPosition, validateVerticalPosition } from '@angular/cdk/overlay'
-import { throwError } from 'rxjs'
+import { inject, Injectable } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { validateHorizontalPosition, validateVerticalPosition } from '@angular/cdk/overlay';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,12 @@ export class ErrorService {
   handleError(err: any) {
     if (err) {
       switch (err.status) {
-        case 400:
-
+        case 401:
+          this.snackBarConsumeMoreHP.open('No pls No', 'More Pls', this.snackBarConfig)
+          break;
+        case 404:
+          this.router.navigate(['/404'])
+          break;
         case 500:
         case 501:
         case 502:
@@ -47,7 +51,7 @@ export class ErrorService {
           break
         default:
           this.snackBarConsumeMoreHP.open('Something went wrong, Do not try again.', 'Got it!', this.snackBarConfig)
-          break
+          break;
       }
     }
     return throwError(() => err)
