@@ -104,7 +104,7 @@ export class AccountService {
       if (user) {
         const photos = user.photos?.map(p => {
           p.is_avatar = p.id === photo_id
-          return p
+          return p;
         })
 
         user.photos = photos
@@ -118,11 +118,11 @@ export class AccountService {
 
 
     } catch (error) {
-      throw new Error("NONOAvatarNOOOOO")
+      // throw new Error("NONOAvatarNOOOOO");
     }
 
   }
-  async deletePhoto(photo_id: string) {
+  async deletePhoto(photo_id: string): Promise<void> {
     const url = environment.baseUrl + 'api/photo/' + photo_id
     try {
       const response = this._http.delete(url)
@@ -139,7 +139,7 @@ export class AccountService {
         this.saveDataToLocalStorage()
       }
     } catch (error) {
-      throw new Error("NO u shoun't Delete this my brother!")
+      // throw new Error("NO u shoun't Delete this my brother!");
     }
   }
 

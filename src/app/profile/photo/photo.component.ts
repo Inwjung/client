@@ -1,12 +1,12 @@
-import { Component, inject, Injectable, input } from '@angular/core'
-import { User } from '../../_models/user'
-import { MatDialog } from '@angular/material/dialog'
-import { UploadPhotoComponent } from '../../_dialogs/upload-photo/upload-photo.component'
-import { MatButtonModule } from '@angular/material/button'
-import { MatIconModule } from '@angular/material/icon'
-import { MatCardModule } from '@angular/material/card'
-import { CommonModule } from '@angular/common'
-import { AccountService } from '../../_services/account.service'
+import { Component, inject, Injectable, input } from '@angular/core';
+import { User } from '../../_models/user';
+import { MatDialog } from '@angular/material/dialog';
+import { UploadPhotoComponent } from '../../_dialogs/upload-photo/upload-photo.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
+import { AccountService } from '../../_services/account.service';
 import { TimeagoClock, TimeagoCustomFormatter, TimeagoDefaultClock, TimeagoFormatter, TimeagoIntl, TimeagoModule } from 'ngx-timeago'
 import { strings as thaiString } from 'ngx-timeago/language-strings/th.js'
 

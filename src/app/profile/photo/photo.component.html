@@ -12,8 +12,8 @@
         <mat-card-actions align="end">
             <p *ngIf="photo.is_avatar" class="avatar"><mat-icon>verified</mat-icon>Avatar</p>
             @if (photo.is_avatar == false) {
-            <button mat-button (click)="setAvatar(photo.id)">Set as Avatar</button>
-            <button mat-button (click)="deletePhoto(photo.id)">Delete</button>
+            <button class="set-avatar" mat-button (click)="setAvatar(photo.id)">Set to Avatar</button>
+            <button class="delete-photo" mat-button (click)="deletePhoto(photo.id)">Delete</button>
             }
         </mat-card-actions>
     </mat-card>
