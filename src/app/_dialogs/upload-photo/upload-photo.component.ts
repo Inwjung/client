@@ -40,7 +40,7 @@ export class UploadPhotoComponent {
       if (fileType && this.acceptedImageType.includes(fileType.mime)) {
         const fileReader = new FileReader()
         fileReader.onload = () => {
-          this.imagePreview.set(fileReader.result?.toString())
+          this.imagePreview.set(fileReader.result as string)
         }
         fileReader.readAsDataURL(this.imageFiles)
       } else {

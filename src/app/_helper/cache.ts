@@ -1,11 +1,11 @@
 import { User } from "../_models/user"
 import { parseUserPhoto } from "./helper"
-import { Paginator, UserQueryPagination } from "./Pagination"
+import { Paginator, QueryPagination, UserQueryPagination } from "./Pagination"
 
 
 
 type cacheOpt = 'member' | 'chat' | 'follower' | 'following'
-type cacheValue = Paginator<UserQueryPagination, User>
+type cacheValue = Paginator<UserQueryPagination, User> | Paginator<QueryPagination, User>
 
 const data = new Map()
 export const cacheManager = { // ใช้ const ***
@@ -16,8 +16,13 @@ export const cacheManager = { // ใช้ const ***
     },
 
     load: function (key: string, opt: cacheOpt): cacheValue | undefined {
-        return data.get(opt + key)
 
+        const _data = data.get(opt + key)
+        if (opt == 'chat')
+            return _data as Paginator<UserQueryPagination, User>
+
+        return _data as Paginator<QueryPagination, User>
+        return undefined
     },
 
     save: function (key: string, opt: cacheOpt, value: cacheValue) {

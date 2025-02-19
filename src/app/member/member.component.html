@@ -40,7 +40,7 @@
 
 
             <button type="submit" mat-raised-button>SS+🤏🏻</button>
-            <button type="button" mat-raised-button (click)="onResetSearch()">Reset</button>
+            <button type="button" mat-raised-button (click)="onReset()">Reset</button>
         </form>
 
     </mat-expansion-panel>
@@ -50,9 +50,9 @@
     @for (member of paginator().items; track member.id) {
     <app-member-card [member]="member"></app-member-card>
     }
-    @for (member of paginator()!.items; track member.id) {
+    <!-- @for (member of paginator().items; track member.id) {
     <p>{{member.username}}</p>
-    }
+    } -->
 </div>
 
 <mat-paginator [length]="paginator().pagination.length" [pageSize]="paginator().pagination.pageSize"

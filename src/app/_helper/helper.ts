@@ -1,8 +1,8 @@
 import { User } from "../_models/user"
 import { QueryPagination, UserQueryPagination } from "./Pagination"
 
-const defaultAvatar = '/assets/defaultAvatar.png'
-const defaultImage = '/assets/Image-not-found.png'
+const defaultAvatar = '/assets/youso.jpg'
+const defaultImage = '/assets/Image-not-found.jpg'
 
 function getAvatar(user: User): string {
     if (user.photos) {

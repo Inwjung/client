@@ -25,6 +25,26 @@ export class AccountService {
     localStorage.removeItem(this._key)
     this.data.set(null)
   }
+
+  // #region setUserforUniversalCity
+
+  public SetUser(user: User) {
+    this.setUser(user)
+  }
+
+  private setUser(user: User) {
+    const copyData = this.data()
+    if (copyData)
+      copyData.user = user
+    this.data.set(copyData)
+    this.saveDataToLocalStorage()
+  }
+
+  // #endregion
+
+
+
+
   // #region login_and_register
 
   async login(loginData: { username: string, password: string }): Promise<string> {
@@ -108,17 +128,13 @@ export class AccountService {
         })
 
         user.photos = photos
-        const copyData = this.data()
-        if (copyData) {
-          copyData.user = user
-        }
-        this.data.set(copyData)
-        this.saveDataToLocalStorage()
+
+        this.setUser(user)
       }
 
 
     } catch (error) {
-      // throw new Error("NONOAvatarNOOOOO");
+      throw new Error("NONOAvatarNOOOOO");
     }
 
   }
@@ -164,18 +180,34 @@ export class AccountService {
       //   this.saveDataToLocalStorage()
       //   return true
       // }
-      if (user) {
-        if (!user.photos) {
-          user.photos = []
-        }
-        user.photos.push(photo)
 
-        const copyData = this.data()
-        if (copyData) {
-          copyData.user = user
-        }
-        this.data.set(copyData)
-        this.saveDataToLocalStorage()
+
+
+      //     if (user) {
+      //       if (!user.photos) {
+      //         user.photos = []
+      //       }
+      //       user.photos.push(photo)
+
+      //       const copyData = this.data()
+      //       if (copyData) {
+      //         copyData.user = user
+      //       }
+      //       this.data.set(copyData)
+      //       this.saveDataToLocalStorage()
+      //       return true
+      //     }
+      //   } catch (error) {
+
+      //   }
+      //   return false
+
+
+      if (user) {
+        if (!user.photos)
+          user.photos = []
+        user.photos?.push(photo)
+        this.setUser(user)
         return true
       }
     } catch (error) {

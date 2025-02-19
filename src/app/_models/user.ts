@@ -16,6 +16,7 @@ export interface User {
     avatar?: string
     photos?: Photo[]
     photoOfTheDay?: string
+    isFollowing?: boolean
 
     //like feature
     followers: User[] | String[]
